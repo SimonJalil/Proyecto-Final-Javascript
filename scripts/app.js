@@ -1,13 +1,24 @@
 //debugger
-/* COMIENZO DEL PROGRAMA */
-alert("Bienvenidos a Techno Shop");
-alert("Tu tienda electronica favorita!!!")
 
 /* VARIABLES GLOBALES */
 let menu;  
 let precio;
 let nombre;
 let stock = 3;
+
+
+/* VARIABLES DOM */
+let tbody = document.querySelector("#tabla_producto");
+let inputBuscar = document.querySelector("#inputBuscar");
+
+let nombreForm = document.querySelector("#nombre");
+let emailForm = document.querySelector("#email");
+let productoForm = document.querySelector("#producto");
+let cantidadForm = document.querySelector("#cantidad");
+let formulario = document.querySelector("#form");
+let aviso = document.querySelector("#aviso");
+
+let tcompras = document.querySelector("#tabla_compras");
 
 /* CLASES */ 
 class producto{
@@ -20,121 +31,103 @@ class producto{
 }
 
 /* OBJETOS */
-const producto1 = new producto(1, "Placa de video", 10000, stock);
-const producto2 = new producto(2, "Teclado", 2000, stock);
-const producto3 = new producto(3, "Mouse", 1500, stock);
+const producto1 = new producto(1, "PLACA DE VIDEO", 10000, stock);
+const producto2 = new producto(2, "TECLADO", 2000, stock);
+const producto3 = new producto(3, "MOUSE", 1500, stock);
 
 /* ARREGLOS */
 const productos = [producto1, producto2, producto3];
 
+/* ARMAR TABLA */
+const armarTabla = (prod) => {
+    return `<tr>
+                <td>${prod.id}</td>
+                <td>${prod.nombre}</td>
+                <td>${prod.precio}</td> 
+            </tr> 
+    `
+}
 
-/* FUNCIONES */
-// Funcion de busqueda por nombre
-function buscarNombre() {
-    nombre = prompt("Ingrese nombre a buscar por favor.");
-    const resultado = productos.find((item) => item.nombre === nombre); 
-    if(resultado != null){
-        alert(`Nombre: ${resultado.nombre}, Precio: ${resultado.precio}, Stock: ${resultado.stock}.`);
-    }else{
-        alert("No hay elementos que coincidan con la busqueda.");
+// Funcion para cargar productos en una tabla
+const cargarProductos = (array) => {
+    let tabla = "";
+    if(array.length > 0){
+        array.forEach(prod => {
+            tabla += armarTabla(prod);
+        })
+        tbody.innerHTML = tabla;
     }
 }
 
-// Funcion de filtro por precio
-function filtrarPrecio() {
-    precio = Number(prompt("Ingrese precio a filtrar por favor."));
-    const resultado = productos.filter((item) => item.precio < precio);
-    if(resultado.length != 0){
-        resultado.forEach((item) => {
-            alert(`Nombre: ${item.nombre}, Precio: ${item.precio}, stock: ${item.stock}.`);
-        }); 
-    }else{
-        alert("No hay elementos que coincidan con la busqueda.");
+// Funcion filtrar productos por busqueda
+const filtrarProductos = () => {
+    let parametro = inputBuscar.value.trim().toUpperCase();
+    //console.log(parametro);
+    let resultado = productos.filter(prod => prod.nombre.includes(parametro))
+    if(resultado.length > 0){
+        cargarProductos(resultado);
     }
 }
 
-// Funcion verTienda: Permite ver todos los productos.
-function verTienda() {
-    const listaProductos = productos.map ((item) => {
-        return{
-            nombre: item.nombre,
-            precio: item.precio,
-            stock: item.stock
-        }
-     }
-    );
-
-    listaProductos.forEach((item) => {
-        alert(`Nombre: ${item.nombre}, Precio: ${item.precio}, Stock: ${item.stock}.`);
-    }); 
+const cargarCompra = () => {
+    const compraArray = JSON.parse(localStorage.getItem("Compra"));
+    tcompras.innerHTML = `
+    <tr>
+        <td>${compraArray[0]}</td>
+        <td>${compraArray[1]}</td>
+        <td>${compraArray[2]}</td> 
+        <td>${compraArray[3]}</td> 
+    </tr>  
+    `; 
 }
 
-// Funcion Comprar equipo
-function comprarEquipo(){
-    let menuCompras = Number(prompt("Seleccione equipo a comprar:\n 1) Placa de video.\n 2) Teclado.\n 3) Mouse."));
+/* MAIN */
+const comprasArray = JSON.parse(localStorage.getItem("Compra"));
+cargarProductos(productos);
 
-    switch (menuCompras) {
-        case 1:
-            if(productos[0].stock != 0){
-                productos[0].stock = productos[0].stock - 1;
-                alert("Gracias por su compra!!!"); 
-            }else{
-                alert("No hay stock del producto.");
-            }
-            break;
-        case 2: 
-            if(productos[1].stock != 0){
-                productos[1].stock = productos[1].stock - 1;
-                alert("Gracias por su compra!!!"); 
-            }else{
-                alert("No hay stock del producto.");
-            }
-            break; 
-        case 3:
-            if(productos[2].stock != 0){
-                productos[2].stock = productos[2].stock - 1;
-                alert("Gracias por su compra!!!"); 
-            }else{
-                alert("No hay stock del producto.");
-            }
-            break;
-        default:
-            alert("Opción no valida.");
-            break;
+
+/* EVENTOS */ 
+inputBuscar.addEventListener("search", ()=>{
+    filtrarProductos();
+})
+
+nombreForm.addEventListener("input", function (){
+    if(nombreForm.value === ""){
+        alert("Ingrese un nombre valido por favor.");
     }
-}
+})
 
-
-
-
-// MAIN
-do {
-    menu = Number(prompt("Ingrese una opcion de la lista, por favor.\n 1) Ver Tienda.\n 2) Comprar.\n 3) Filtre por precio.\n 4) Busque un producto.\n 5) Salir."));
-    
-    switch (menu) {
-        case 1:
-            verTienda();
-            break;
-        case 2:
-            comprarEquipo();
-            break;
-        case 3: 
-            filtrarPrecio();
-            break;
-        case 4:
-            buscarNombre();
-            break;
-        case 5:
-            alert("Gracias. Vuelva pronto.");
-            break;
-        default:
-            alert("Opcion no valida.");
-            break;
+emailForm.addEventListener("input", function (){
+    if(emailForm.value === ""){
+        alert("Ingrese un email valido por favor.");
     }
-    
-} while (menu != 5);
+})
 
- 
+productoForm.addEventListener("input", function (){
+    if(productoForm.value != 1 && productoForm.value != 2 && productoForm.value != 3){
+        alert("Ingrese un producto valido por favor.");
+    } 
+})
 
+cantidadForm.addEventListener("input", function (){
+    if(cantidadForm.value === ""){
+        alert("Ingrese una cantidad valida por favor.");
+    }   
+})
 
+const imprimirData = formulario.addEventListener("submit", function(e){
+    e.preventDefault();
+    aviso.innerHTML = `
+    <div class="alert alert-warning" role="alert">
+        <h5> Muchas gracias  ${nombreForm.value} por tu compra, te enviamos la factura a ${emailForm.value}. </h5>
+    </div>
+    `;
 
+    /* ALMACENAR EN LOCAL STORAGE */
+    const array = [nombreForm.value,emailForm.value, productoForm.value, cantidadForm.value];
+    const aJson  = JSON.stringify(array);
+    localStorage.setItem("Compra",aJson);
+
+    /* MOSTRAR LA COMPRA EFECTUADA */
+    cargarCompra();
+})

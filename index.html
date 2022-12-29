@@ -6,12 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Document</title>
+    <title>TechnoShop</title>
 </head>
 <body>
-    <h1> Bienvenidos a Techno Shop </h1>
-    <h2> Simulador de carrito de compras </h2>
 
+    <!-- Menu de navegacion -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">TECHNOSHOP</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <br>
+
+      <h1>Lista de productos</h1>
+
+      <br>
+
+      <!--Barra de busqueda-->
+      <div class="d-flex">
+        <input class="form-control" type="search" placeholder="Buscar producto" aria-label="Search" id="inputBuscar">
+      </div>
+      
+      <br>
+
+      <!-- Lista de productos -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Importe</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_producto">
+            <tr>
+                <td>#</td>
+                <td>producto</td>
+                <td>importe</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <h2>Formulario de compra</h2>
+
+    <!-- Formulario de compra -->
+    <form class="m-5" id="form">
+        <div class="mb-3">
+          <label for="formulario" class="form-label">Nombre</label>
+          <input class="form-control" id="nombre" type="text">
+        </div>
+
+        <div class="mb-3">
+          <label for="formulario" class="form-label">Email</label>
+          <input class="form-control" id="email" type="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="formulario" class="form-label">Producto</label>
+            <select id="producto" class="form-select" aria-label="Default select example">
+                <option selected>Elija una de las opciones...</option>
+                <option value="1">TECLADO</option>
+                <option value="2">MOUSE</option>
+                <option value="3">PLACA DE VIDEO</option>
+              </select>
+          </div>
+
+        <div class="mb-3">
+            <label for="formulario" class="form-label">Cantidad</label>
+            <input class="form-control" id="cantidad" type="text">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+      <div class="container">
+        <div id="aviso">
+        </div>
+      </div>
+
+      <br>
+
+      <h2>Compra efectuada</h2>
+      
+      <br>
+
+      <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Id_Producto</th>
+                <th scope="col">Cantidad</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_compras">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 
 
 
