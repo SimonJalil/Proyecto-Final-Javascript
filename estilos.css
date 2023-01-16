@@ -1,0 +1,34 @@
+body{
+    overflow-x: hidden;
+}
+
+a{
+    cursor: pointer;
+}
+
+.modal-contenedor{
+    display:flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.img-carrito{
+    width: 200px;
+    padding: 20px;
+}
+
+.parrafo{
+    font-weight: 900;
+    font-style: oblique;
+}
+
+#precioTotal{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+.boton{
+    opacity:0;
+}
