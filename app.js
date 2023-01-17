@@ -6,7 +6,7 @@ const stockProductos = [
 			cantidad: 1, 
 			desc: "Mouse con cable USB",
 			precio: 700, 
-			img: "/images/mouse.svg" 
+			img: "images/mouse.svg" 
     },			
     
     {
@@ -15,7 +15,7 @@ const stockProductos = [
 			cantidad: 1,
 			desc: "Monitor 17''",
 			precio: 1000,
-			img: "/images/monitor.svg"
+			img: "images/monitor.svg"
     },
 
     {
@@ -24,16 +24,16 @@ const stockProductos = [
 			cantidad: 1,
 			desc: "Teclado inalambrico",
 			precio: 500,
-			img: "/images/teclado.svg"
+			img: "images/teclado.svg"
     },
 
 		{
 			id: 4, 
 			nombre: "laptop",
 			cantidad: 1,
-			desc: "Laptop intel i5",
+			desc: "Laptop intel i7",
 			precio: 2000,
-			img: "/images/notebook.jpg"
+			img: "images/notebook.jpg"
 		}
 ];
 
