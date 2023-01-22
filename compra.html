@@ -45,19 +45,19 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col">
-                    <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
+                    <h2 class="d-flex justify-content-center mb-3 text-white">Realizar Compra</h2>
                     <form id="procesar-pago" method="POST">
                         <div class="form-group row">
-                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2 text-white">Cliente :</label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control" id="cliente"
-                                    placeholder="Ingresa nombre cliente" name="persona">
+                                    placeholder="Ingresa nombre cliente" name="persona" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                            <label for="email" class="col-12 col-md-2 col-form-label h2 text-white">Correo :</label>
                             <div class="col-12 col-md-10">
-                            <input type="text"  id="correo" class="form-control"  name="email.id" id="email.id">
+                            <input type="text"  id="correo" class="form-control"  name="email.id" id="email.id" autocomplete="off">
                             </div>
                         </div>
 
@@ -65,11 +65,11 @@
                             <table class="table" id="lista-compra">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Imagen</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Sub Total</th>
+                                        <th class="text-white" scope="col">Imagen</th>
+                                        <th class="text-white" scope="col">Nombre</th>
+                                        <th class="text-white" scope="col">Precio</th>
+                                        <th class="text-white" scope="col">Cantidad</th>
+                                        <th class="text-white" scope="col">Sub Total</th>
                                     </tr>
 
                                 </thead>
@@ -77,7 +77,7 @@
 
                                 </tbody>
                                 <tr>
-                                    <th colspan="4" scope="col" class="text-right">TOTAL
+                                    <th colspan="4" scope="col" class="text-right text-white">TOTAL
                                         <p id="totalProceso"></p>
                                     </th>
                                     <!-- <th scope="col"></th> -->

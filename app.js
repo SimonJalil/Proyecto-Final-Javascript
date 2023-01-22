@@ -277,10 +277,10 @@ function procesarPedido(){
           <img class="img-fluid img-carrito" src="${img}"/>
         </td> 
 
-        <td>${nombre}</td>
-        <td>${precio}</td>
-        <td>${cantidad}</td>
-        <td>${precio*cantidad}</td>
+        <td class="text-white">${nombre}</td>
+        <td class="text-white">${precio}</td>
+        <td class="text-white">${cantidad}</td>
+        <td class="text-white">${precio*cantidad}</td>
       `;
 
       listaCompra.appendChild(row);
