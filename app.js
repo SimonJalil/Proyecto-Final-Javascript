@@ -2,7 +2,7 @@
 const stockProductos = [
     {
 			id: 1, 
-			nombre: "mouse",
+			nombre: "Mouse",
 			cantidad: 1, 
 			desc: "Mouse con cable USB",
 			precio: 700, 
@@ -11,7 +11,7 @@ const stockProductos = [
     
     {
 			id: 2, 
-			nombre: "monitor",
+			nombre: "Monitor",
 			cantidad: 1,
 			desc: "Monitor 17''",
 			precio: 1000,
@@ -20,7 +20,7 @@ const stockProductos = [
 
     {
 			id: 3, 
-			nombre: "teclado",
+			nombre: "Teclado",
 			cantidad: 1,
 			desc: "Teclado inalambrico",
 			precio: 500,
@@ -29,18 +29,82 @@ const stockProductos = [
 
 		{
 			id: 4, 
-			nombre: "laptop",
+			nombre: "Laptop",
 			cantidad: 1,
 			desc: "Laptop intel i7",
 			precio: 2000,
 			img: "images/notebook.jpg"
-		}
+		},
+
+    {
+			id: 5, 
+			nombre: "Ropa interior femenina",
+			cantidad: 1,
+			desc: "Ropa interior",
+			precio: 800,
+			img: "images/bombacha.svg"
+		},
+
+    {
+			id: 6, 
+			nombre: "Cigarro electronico",
+			cantidad: 1,
+			desc: "Vaper",
+			precio: 2000,
+			img: "images/cigarrillo.svg"
+		},
+
+    {
+			id: 7, 
+			nombre: "Brazalete",
+			cantidad: 1,
+			desc: "Brazalete dorado",
+			precio: 300,
+			img: "images/brazalete.svg"
+		},
+
+    {
+			id: 8, 
+			nombre: "Boxer",
+			cantidad: 1,
+			desc: "Ropa interior masculina",
+			precio: 1000,
+			img: "images/boxer.svg"
+		},
+
+    {
+			id: 9, 
+			nombre: "Zapatillas Running",
+			cantidad: 1,
+			desc: "Zapatillas color Rojo",
+			precio: 1200,
+			img: "images/zapatillas.jpg"
+		},
+
+    {
+			id: 10, 
+			nombre: "Pelota de futból 5",
+			cantidad: 1,
+			desc: "Pelota futbol 5 clasica",
+			precio: 2000,
+			img: "images/pelota.jpg"
+		},
 ];
 
+// API REST OTROS PRODUCTOS
+function cargarProductos(){
+  fetch('https://fakestoreapi.com/products')
+    .then(function(res){
+      return res.json();
+    })
+    .then((data) => {
+      pintarProductos(data);
+    })
+}
+
+
+// VARIABLES Y ARREGLOS
 let carrito = [];
-
-
-
 const contenedor = document.querySelector('#contenedor');
 const carritoContenedor = document.querySelector('#carritoContenedor');
 const vaciarCarrito = document.querySelector('#vaciarCarrito');
@@ -49,18 +113,20 @@ const procesarCompra = document.querySelector('#procesarCompra');
 const activarFuncion = document.querySelector('#activarFuncion');
 const totalProceso = document.querySelector('#totalProceso');
 const formulario = document.querySelector('#procesar-pago');
+const top5 = document.querySelector('#top-5');
 
-
+// EVENTO PARA PROCESAR PEDIDO
 if(activarFuncion){
   activarFuncion.addEventListener('click', procesarPedido);
 }
 
+// EVENTO PARA ENVIAR FORMULARIO
 if(formulario){
   formulario.addEventListener('submit', enviarPedido);
 }
   
 
-// Metodo para almacenar la lista de productos en carritoante alguna recarga de pagina.
+// EVENTO PARA ALMACENAR LA LISTA DE PRODUCTOS EN CARRITO ANTE ALGUNA RECARGA DE PAGINA
 document.addEventListener('DOMContentLoaded', () => {
   carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   mostrarCarrito(); 
@@ -69,30 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#activarFuncion').click(procesarPedido);  
   }
 
-
+  cargarProductos();
 });
 
 
-// Generar Tarjetas para cada uno de los productos
+// GENERA TARJETAS DE CADA UNO DE LOS PRODUCTOS DEL ARRAY
 stockProductos.forEach((prod) => {
     const {id, nombre, precio, desc, img, cantidad} = prod;  
     if(contenedor){
-    contenedor.innerHTML += `
-    <div class="card" style="width: 18rem;">
-      <img src="${img}" class="card-img-top mt-2" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${nombre}</h5>
-        <p class="card-text">Precio: ${precio}</p>
-        <p class="card-text">Descripcion:${desc}</p>
-        <p class="card-text">Cantidad: ${cantidad}</p>
-        <button onclick="agregarProducto(${id})" class="btn btn-primary">Agregar al carrito</button>
+      contenedor.innerHTML += `
+      <div class="card" style="width: 18rem;">
+        <img src="${img}" class="card-img-top mt-2 imagen" alt="${desc}">
+        <div class="card-body">
+          <h5 class="card-title">${nombre}</h5>
+          <p class="card-text">Precio: ${precio}</p>
+          <p class="card-text">Descripcion:${desc}</p>
+          <p class="card-text">Cantidad: ${cantidad}</p>
+          <button onclick="agregarProducto(${id})" class="btn btn-primary">Agregar al carrito</button>
+        </div>
       </div>
-    </div>
-    `
+      `
   }
 })
 
-// Evento para continuar con la compra
+// EVENTO PARA PROCESAR LA COMPRA
 if(procesarCompra){
   procesarCompra.addEventListener('click',() => {
     if(carrito.length === 0){
@@ -109,7 +175,7 @@ if(procesarCompra){
   })
 }
 
-// Metodo para eliminar carrito de compras.
+// EVENTO PARA ELIMINAR EL CARRITO DE COMPRAS
 if(vaciarCarrito){
   vaciarCarrito.addEventListener('click', () => {
     carrito.length = [];
@@ -117,7 +183,7 @@ if(vaciarCarrito){
   }) 
 }
 
-// Agregar producto al arreglo carrito.
+// FUNCION PARA AGREGAR PRODUCTOS AL CARRITO DE COMPRAS
 function agregarProducto(id){
   const existe = carrito.some(prod => prod.id === id);
   if(existe){
@@ -131,11 +197,18 @@ function agregarProducto(id){
     carrito.push(item); 
   }
 
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Agregado al carrito',
+    showConfirmButton: false,
+    timer: 1500
+  })
   mostrarCarrito();
 }
 
 
-// Metodo para mostrar carrito.
+// METODO PARA MOSTRAR EL CARRITO DE COMPRAS
 const mostrarCarrito = () => {
   const modalBody = document.querySelector('.modal .modal-body');
   if(modalBody){
@@ -178,7 +251,7 @@ const mostrarCarrito = () => {
 }
 
 
-// Metodo para eliminar producto de carrito.
+// METODO PARA ELIMINAR PRODUCTO DE CARRITO
 function eliminarProducto(id){
   const productoId = id;
   carrito = carrito.filter((prod) => prod.id != productoId);
@@ -186,11 +259,12 @@ function eliminarProducto(id){
   mostrarCarrito();
 } 
 
-// Metodo para almacenar en Storage el carrito.
+// METODO PARA ALMACENAR EN STORAGE EL CARRITO
 function guardarStorage(){
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// FUNCION PARA PROCESAR PEDIDO
 function procesarPedido(){
   carrito.forEach((prod) =>{
     const listaCompra = document.querySelector('#lista-compra tbody');
@@ -219,7 +293,7 @@ function procesarPedido(){
   
 }
 
-
+// FUNCION PARA ENVIAR EL PEDIDO
 function enviarPedido(e){
   e.preventDefault();
   const cliente = document.querySelector('#cliente').value;
@@ -254,4 +328,24 @@ function enviarPedido(e){
 
     localStorage.clear();
   }   
+}
+
+//FUNCION PARA PINTAR LOS PRODUCTOS DE LA API
+function pintarProductos(data){
+  
+  data.forEach((data) => {
+    const{id, category, image, price, title} = data;
+    if(id < 6){
+      top5.innerHTML += `
+      <div class="card" style="width: 18rem;">
+        <img src="${image}" class="card-img-top imagen" alt="${title}">
+        <div class="card-body">
+          <h5 class="card-title">${title}</h5>
+          <p class="card-text">${category}.</p>
+          <p class="card-text">$${price}</p>
+        </div>
+      </div>    
+    `;
+    }
+  })
 }

@@ -1,6 +1,8 @@
 body{
     overflow-x: hidden;
+    background-color: bisque;
 }
+
 
 a{
     cursor: pointer;
@@ -31,4 +33,69 @@ a{
 }
 .boton{
     opacity:0;
+}
+
+.imagen{
+    width: 250px;
+    height: 200px;
+}
+
+.slide-1{
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/monstruo.jpg);
+}
+
+.slide-2{
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/ecommerce_2.jpg);
+}
+
+.slide-3{
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/ecommerce_3.jpg);
+}
+
+
+footer{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/images/cover3.jpg);
+    padding-top: 120px;
+    padding-bottom: 30px;
+}
+
+footer p,
+footer a{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+footer .social-links a{
+    font-weight: normal;
+    font-size: 24px;
+    margin-right: 10px; 
+}
+
+footer img{
+    max-width: 175px;
+}
+
+.links_footer{
+    display: inline block; 
+}
+
+.footer-top{
+    margin-bottom: 30px;
+}
+
+.footer-bottom{
+    padding-top: 30px;
+    border-top: 2px solid rgba(255,255,255,0.4);
+}
+
+#logo{
+    width: 100%;
+    border-color: black;
+    border-style: solid;
+    border-radius: 50%;
+    margin: 5px 5px;
+}
+
+#video{
+    display: flex;
+    justify-content: center;
 }

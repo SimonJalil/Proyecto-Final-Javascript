@@ -22,6 +22,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="images/favicon/favicon-16x16.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <title>Ecommerce</title>
   </head>
@@ -30,7 +32,7 @@
     <!--HEADER-->
     <header>
       <nav class="navbar navbar-light bg-dark min-vw-100">
-        <h2 class="p-3 text-white">Ecommerce</h2>
+        <h2 class="p-3 text-white">Monstruo Mercado</h2>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a
@@ -43,11 +45,71 @@
           </li>
         </ul>
       </nav>
+
+
+      <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+        <div class="carousel-item text-center active bg-cover vh-100 active slide-1">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h6 class="text-white">BIENVENIDO A MONSTRUO MERCADO</h6>
+                        <h1 class="display-1 fw-bold text-white">Donde comprar es una experiencia sobrenatural...</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item text-center active bg-cover vh-100 slide-2">
+            <div class="container text-center h-100 d-flex align-items-center justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h6 class="text-white">SEMANA DE DESCUENTO</h6>
+                        <h1 class="display-1 fw-bold text-white">Aprovecha 20, 30 y 50% en nuestros productos !!!</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item text-center active bg-cover vh-100 slide-3">
+          <div class="container text-center h-100 d-flex align-items-center justify-content-center">
+              <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                      <h6 class="text-white">¿QUE ESTAS ESPERANDO?</h6>
+                      <h1 class="display-1 fw-bold text-white">¡¡¡VENI A TU LOCAL MAS CERCANO Y REVENTA LA DE CREDITO!!!</h1>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
     </header>
+
+    <br><br>
 
     <!--MAIN-->
     <main>
-      <div class="row mt-5 gap-2" id="contenedor"></div>
+      <h1 class="display-5 fw-bold text-black">NUESTROS PRODUCTOS:</h1>
+      <div class="row mt-5 gap-2" id="contenedor">
+      </div>
+      
+      <br><br>
+
+      <div class="top">
+        <h1 class="display-5 fw-bold text-black">TOP 5 PRODUCTOS MAS VENDIDOS:</h1>
+        <div id="top-5" class="row mt-5 gap-2"></div>
+      </div>
     </main>
     
 
@@ -91,6 +153,64 @@
       </div>
     </div>
 
+    <br><br>
+
+    <h3 class="display-5 fw-bold text-black">NUESTRA ATENCION Y CARISMA DESTACA POR SOBRE TODAS LAS COSAS...</h3>
+    <br><br>
+    <div id="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/CxphJ1bCk9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    
+
+    <br><br>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <img id="logo" src="images/logo/android-icon-72x72.png" class="mb-4" alt="logo">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quam enim provident, sint sit natus praesentium mollitia. Dolore, mollitia obcaecati.</p>
+                      <div class="social-links">
+                          <a href="https://es-la.facebook.com/" target="_blanck"><i class="ri-facebook-circle-fill"></i></a>
+                          <a href="https://www.instagram.com/" target="_blanck"><i class="ri-instagram-line"></i></a>
+                          <a href="https://www.whatsapp.com/?lang=es" target="_blanck"><i class="ri-whatsapp-line"></i></a>
+                          <a href="https://www.youtube.com/" target="_blanck"><i class="ri-youtube-line"></i></a>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-3 ms-auto">
+                      <h3 class="text-white">CONOCENOS</h3>
+                      <a href="#">Unete al equipo</a>
+                      <br>
+                      <a href="#">Conoce nuestas sucursales</a>
+                      <br>
+                      <a href="#">Contáctanos</a>
+                  </div>
+
+                  <div class="col-lg-3 mb-4">   
+                      <h3 class="text-white">MI CUENTA</h3>
+                      <a href="#">Sign in</a>
+                      <br>
+                      <a href="#">Sign up</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <div class="container">
+              <div class="row justify-content-between">
+                  <div class="col-auto">
+                      <p class="mb-0">Todos los derechos reservados</p>
+                  </div>
+                  <div class="col-auto">
+                      <p class="mb-0">Diseñado por <a href="mailto:simonjalilcruz@gmail.com?subject=Solicitud de desarrollo">Simón Jalil</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
 
     <!--SCRIPTS-->
     <script src="app.js"></script>
