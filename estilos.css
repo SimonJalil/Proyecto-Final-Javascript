@@ -41,20 +41,21 @@ a{
 }
 
 .slide-1{
-    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/monstruo.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(images/monstruo.jpg);
 }
 
 .slide-2{
-    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/ecommerce_2.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(images/ecommerce_2.jpg);
 }
 
 .slide-3{
-    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(../images/ecommerce_3.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.616),rgba(0, 0, 0, 0.63)), url(images/ecommerce_3.jpg);
 }
 
 
 footer{
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/images/cover3.jpg);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/ecommerce_1.jpg);
+    background-position: center;
     padding-top: 120px;
     padding-bottom: 30px;
 }
